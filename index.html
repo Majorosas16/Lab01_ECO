@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #data-container {
+            margin-top: 20px;
+        }
+        .item {
+            margin-bottom: 10px;
+        }
+        img {
+            max-width: 300px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetch LAB</h1>
+    <label for="type_anime">Type</label>
+    <input type="text" name="type_anime" id="type_anime">
+    <label for="status_anime">Status</label>
+    <input type="text" name="status_anime" id="status_anime">
+    <label for="rating_anime">Rating</label>
+    <input type="text" name="rating_anime" id="rating_anime">
+    <button id="fetch-button">Search Anime</button>
+    <div id="anime-container"></div>
+    <script src="index.js"></script>
+</body>
+</html>
