@@ -1,7 +1,7 @@
 const containerNobel = document.getElementById("nobel-container");
 const containerEmoji = document.getElementById("emoji-container");
 
-// API NOBEL PRIZE
+// RANDOM PHONE AND USER
 
 const buttonNobel = document.getElementById("nobel-button").addEventListener("click", fetchDataNobel);
 
