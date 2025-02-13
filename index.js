@@ -1,11 +1,11 @@
-const containerNobel = document.getElementById("nobel-container");
+const buttonUser = document.getElementById("user-button").addEventListener("click", fetchDataUser);
+const containerUser = document.getElementById("user-container");
+const food_button = document.getElementById("emoji-button").addEventListener("click", fetchDataEmoji);
 const containerEmoji = document.getElementById("emoji-container");
 
 // RANDOM PHONE AND USER
 
-const buttonNobel = document.getElementById("nobel-button").addEventListener("click", fetchDataNobel);
-
-async function fetchDataNobel() {
+async function fetchDataUser() {
     renderLoadingState();
     try {
       const response = await fetch("https://randomuser.me/api/");
@@ -13,33 +13,34 @@ async function fetchDataNobel() {
         throw new Error("Network response was not ok");
       }
     const data = await response.json();
-    renderNobelPrize(data);
+    renderUser(data);
       
     } catch (error) {
       renderErrorState();
     }
   }
 
-  const renderNobelPrize = (data) => {
-    containerNobel.innerHTML = ""; // Clear previous data
+  const renderUser = (data) => {
+    containerUser.innerHTML = "";
 
     if (!data.results || data.results.length === 0) {
-        containerNobel.innerHTML = "<p>No data available</p>";
+      containerUser.innerHTML = "<p>¡Ops! Something happened, try again</p>";
         return;
     }
 
     const txt = document.createElement("p");
+    const txt2 = document.createElement("p");
     const img = document.createElement("img");
     img.src=`${data.results[0].picture.large}`;
     img.alt=`${data.results[0].name.title}`;
+    txt2.innerHTML = `Country:     ${data.results[0].location.country}`;
     txt.innerHTML = `Phone: ${data.results[0].phone}`;
-    containerNobel.appendChild(txt);
-    containerNobel.appendChild(img)
-}
+    containerUser.appendChild(txt);
+    containerUser.appendChild(txt2)
+    containerUser.appendChild(img)
+  }
 
 // API RANDOM EMOJI
-
-const emoji_button = document.getElementById("emoji-button").addEventListener("click", fetchDataEmoji);
 
 async function fetchDataEmoji() {
     renderLoadingState();
